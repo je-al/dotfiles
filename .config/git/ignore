@@ -1,0 +1,33 @@
+# compiled
+*.sass-cache
+*.cache
+*.class
+*.o
+*.so
+*.pyc
+
+# archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# os
+.DS_Store
+.DS_Store?
+._*
+.Trashes
+
+# others
+.bundle
+.vagrant
+.idea
+tmp/
+node_modules/
+bower_components/
+vendor/
+

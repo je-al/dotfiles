@@ -1,0 +1,26 @@
+[core]
+autocrlf = false
+excludesfile = $XDG_CONFIG_HOME/git/ignore
+pager = $PAGER
+
+[alias]
+lg = "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit"
+
+[pretty]
+ls = format:%C(cyan)%h %C(red)%ad %C(blue)[%an]%C(magenta)%d %C(white)%s
+
+[diff]
+tool = vimdiff
+algorithm = patience
+
+[apply]
+whitespace = strip
+
+[merge]
+tool = vimdiff
+
+[color]
+ui = true
+
+[push]
+default = simple
