@@ -9,6 +9,10 @@ cd $HOME
 echo "init submodules"
 git --git-dir .yadm/repo.git --work-tree . submodule update --recursive --init
 
+echo "fix git repo config"
+git --git-dir .yadm/repo.git config core.bare false
+git --git-dir .yadm/repo.git config core.worktree $HOME
+
 echo "temporary path addition"
 PATH="$HOME/.local/bin:$PATH"
 
