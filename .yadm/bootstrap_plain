@@ -12,6 +12,10 @@ git --git-dir .yadm/repo.git --work-tree . submodule update --recursive --init
 echo "fix git repo config"
 git --git-dir .yadm/repo.git config core.bare false
 git --git-dir .yadm/repo.git config core.worktree $HOME
+git --git-dir .yadm/repo.git config core.sharedrepository 0600
+git --git-dir .yadm/repo.git config receive.denyNonFastforwards true
+git --git-dir .yadm/repo.git config status.showUntrackedFiles no
+git --git-dir .yadm/repo.git config yadm.managed true
 
 echo "temporary path addition"
 PATH="$HOME/.local/bin:$PATH"
