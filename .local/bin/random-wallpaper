@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+dir="$HOME/wallpapers"
+
+if [ "$#" -gt 0 ]; then
+  dir=$1
+fi
+
+feh --bg-scale $(find $dir/ -maxdepth 1 -type f | shuf -n1)
+exit 0
+

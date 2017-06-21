@@ -7,4 +7,4 @@ setxkbmap \
   -option grp:shifts_toggle \
   -option grp_led:caps \
   -option ctrl:swap_lalt_lctl \
-  -option compose:ralt \
+  -option compose:ralt

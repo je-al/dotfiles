@@ -1,0 +1,30 @@
+#!/bin/bash
+declare -a tam
+eval $(xdotool getmouselocation --shell) # asigna X e Y
+
+for o in $(xrandr | grep " connected")
+do
+  if [[ $o =~ ([0-9]+)x([0-9]+)\+([0-9]+)\+([0-9]+) ]]
+  then
+    w=${BASH_REMATCH[1]}
+    h=${BASH_REMATCH[2]}
+    xo=${BASH_REMATCH[3]}
+    yo=${BASH_REMATCH[4]}
+    r=$(($w + $xo - 1))
+    b=$(($h + $yo - 1))
+
+    if (( $xo <= $X && $X <= $r && $yo <= $Y && $Y <= $b ))
+    then
+      xc=$(($xo + $w/2 - 1))
+      yf=$(($b - 2))
+      #alterna entre abajo centrado y centro
+      if (( $xc == $X && $yf == $Y ))
+      then
+        yf=$(($yo + $h/2 - 1))
+      fi
+      xdotool mousemove $xc $yf
+      exit 0
+    fi
+  fi
+done
+
