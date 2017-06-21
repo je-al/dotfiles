@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+mouse=$(xinput | grep "Mouse")
+if [[ $? -eq 0 ]] ; then
+  xinput set-button-map $(echo $mouse | grep -oP "(?<=id=)\d+") 3 2 1
+fi

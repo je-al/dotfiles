@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+setxkbmap \
+  -layout us,us \
+  -variant dvp, \
+  -option \
+  -option caps:swapescape \
+  -option grp:shifts_toggle \
+  -option grp_led:caps \
+  -option ctrl:swap_lalt_lctl \
+  -option compose:ralt \
