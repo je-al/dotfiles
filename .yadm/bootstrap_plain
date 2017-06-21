@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+
+# prelude
+# git clone --bare https://github.com/je-al/dotfiles.git .yadm/repo.git
+# git --git-dir .yadm/repo.git --work-tree . checkout
+
+cd $HOME
+
+echo "init submodules"
+git --git-dir .yadm/repo.git --work-tree . submodule update --recursive --init
+
+echo "temporary path addition"
+PATH="$HOME/.local/bin:$PATH"
+
+echo "updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:je-al/dotfiles.git"
+
+echo "done!"
