@@ -1,0 +1,10 @@
+feh
+ponymix
+pulseaudio-ctl
+rofi
+scrot
+stterm
+xcalib
+xdotool
+xinput
+xrandr
