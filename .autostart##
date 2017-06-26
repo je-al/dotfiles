@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+# no beeps
+xset -b
+
+xrdb -merge $HOME/.xresources &
+
+# kb layout
+modkb
+
+# notifications
+dunst &
+
+# touchpad
+syndaemon -t -k -i 1 -d &
+synclient TapButton1=1 TapButton3=3
+
+# gamma correct
+xgamma -gamma 0.90 &
+
+random-wallpaper &
+
+exit 0

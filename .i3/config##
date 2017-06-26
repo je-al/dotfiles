@@ -1,0 +1,202 @@
+# i3 config file (v4)
+# mod
+set $mod Mod4
+
+# drag floating windows
+floating_modifier $mod
+
+# change focus
+bindsym $mod+h focus left
+bindsym $mod+t focus down
+bindsym $mod+n focus up
+bindsym $mod+s focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+H move left
+bindsym $mod+Shift+T move down
+bindsym $mod+Shift+N move up
+bindsym $mod+Shift+S move right
+
+# switch to workspace
+bindsym $mod+ampersand workspace 1
+bindsym $mod+bracketleft workspace 2
+bindsym $mod+braceleft workspace 3
+bindsym $mod+braceright workspace 4
+bindsym $mod+parenleft workspace 5
+bindsym $mod+equal workspace 6
+bindsym $mod+asterisk workspace 7
+bindsym $mod+parenright workspace 8
+bindsym $mod+plus workspace 9
+bindsym $mod+bracketright workspace 10
+bindsym $mod+Tab workspace next
+bindsym $mod+dollar workspace prev
+
+# move focused container to workspace
+bindsym $mod+Shift+percent move container to workspace 1
+bindsym $mod+Shift+7 move container to workspace 2
+bindsym $mod+Shift+5 move container to workspace 3
+bindsym $mod+Shift+3 move container to workspace 4
+bindsym $mod+Shift+1 move container to workspace 5
+bindsym $mod+Shift+9 move container to workspace 6
+bindsym $mod+Shift+0 move container to workspace 7
+bindsym $mod+Shift+2 move container to workspace 8
+bindsym $mod+Shift+4 move container to workspace 9
+bindsym $mod+Shift+6 move container to workspace 10
+bindsym $mod+Shift+Tab move container to workspace next; workspace next
+bindsym $mod+Shift+asciitilde move container to workspace prev; workspace prev
+
+# output movement
+bindsym $mod+g focus output left
+bindsym $mod+c focus output down
+bindsym $mod+r focus output up
+bindsym $mod+l focus output right
+
+bindsym $mod+Shift+G move container to output left
+bindsym $mod+Shift+C move container to output down
+bindsym $mod+Shift+R move container to output up
+bindsym $mod+Shift+L move container to output right
+
+bindsym $mod+Ctrl+g move workspace to output left
+bindsym $mod+Ctrl+c move workspace to output down
+bindsym $mod+Ctrl+r move workspace to output up
+bindsym $mod+Ctrl+l move workspace to output right
+
+# meta
+bindsym $mod+Shift+J reload
+bindsym $mod+Shift+P restart
+bindsym $mod+semicolon kill
+
+# splits
+bindsym $mod+j split h
+bindsym $mod+k split v
+bindsym $mod+u fullscreen
+
+# border
+bindsym $mod+b border toggle
+
+# change container layout
+bindsym $mod+o layout stacking
+bindsym $mod+comma layout tabbed
+bindsym $mod+period layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus
+bindsym $mod+a focus parent
+bindsym $mod+apostrophe focus child
+
+# scratchpad
+bindsym $mod+Shift+D move scratchpad
+bindsym $mod+d scratchpad show
+
+bindsym $mod+i exec --no-startup-id xcalib -i -a
+
+# dynamic tagging
+# bindsym $mod+q exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/go_to_workspace.py
+# bindsym $mod+Shift+Q exec ~/.i3/get_workspace_options.py | dmenu -b | ~/.i3/move_to_workspace.py
+
+# modes
+set $mode_resize Resize
+mode "$mode_resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym t resize grow height 10 px or 10 ppt
+    bindsym n resize shrink height 10 px or 10 ppt
+    bindsym s resize grow width 10 px or 10 ppt
+    bindsym Shift+H resize shrink width 2 px or 2 ppt
+    bindsym Shift+T resize grow height 2 px or 2 ppt
+    bindsym Shift+N resize shrink height 2 px or 2 ppt
+    bindsym Shift+S resize grow width 2 px or 2 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+p mode "$mode_resize"
+
+set $mode_system System -- {l} lock {e} logout {s} suspend {h} hibernate {r} reboot {S} shutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
+    bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+    bindsym r exec --no-startup-id i3exit reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+M mode "$mode_system"
+
+set $mode_workspaces Workspaces
+mode "$mode_workspaces" {
+  bindsym a workspace 1, mode "default"
+  bindsym o workspace 2, mode "default"
+  bindsym e workspace 3, mode "default"
+  bindsym u workspace 4, mode "default"
+  bindsym i workspace 5, mode "default"
+  bindsym d workspace 6, mode "default"
+  bindsym h workspace 7, mode "default"
+  bindsym t workspace 8, mode "default"
+  bindsym n workspace 9, mode "default"
+  bindsym s workspace 10, mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+bindsym $mod+v mode "$mode_workspaces"
+
+#print screen
+bindsym Print exec scrot
+
+# applications
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="st"] border 1pixel
+for_window [class="Firefox"] border 1pixel
+for_window [class="Firefox" instance="DTA"] floating enable
+for_window [class="Firefox" instance="Browser"] floating enable
+for_window [class="Chromium"] border 1pixel
+
+# launch
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+e exec --no-startup-id dmenu -i -l 15
+bindsym $mod+m exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 15"
+bindsym $mod+f exec --no-startup-id clear-mouse
+
+exec --no-startup-id i3-sensible-terminal -t "st-sp" -g 968x633+199+50
+for_window [title="st-sp"] move scratchpad
+
+# theme
+set $hfg #000000
+set $hbg #7cafc2
+set $bg #282828
+set $fg #7cafc2
+set $ifg #dddddd
+set $ubg #ffbb88
+
+bar {
+  status_command i3status
+  colors {
+    separator $bg
+    background $bg
+    statusline $ifg
+    focused_workspace $hbg $hbg $hfg
+    active_workspace $bg $bg $fg
+    inactive_workspace $bg $bg $ifg
+    urgent_workspace $ubg $ubg $hfg
+  }
+}
+
+client.focused $hbg $hbg $hfg $ubg
+client.focused_inactive $bg $bg $ifg $bg
+client.unfocused $bg $bg $ifg $bg
+client.urgent $ubg $ubg $hfg $bg
+
+# autostart
+exec --no-startup-id bash $HOME/.autostart

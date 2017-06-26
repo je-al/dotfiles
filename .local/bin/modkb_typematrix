@@ -1,0 +1,14 @@
+#!/bin/bash
+keyboard=$(xinput | grep 'TypeMatrix' | grep 'keyboard' | head -n 1)
+if [[ $? -eq 0 ]] ; then
+  setxkbmap \
+    -layout us,us \
+    -variant dvp, \
+    -option \
+    -option grp:shifts_toggle \
+    -option grp_led:caps \
+    -option compose:ralt \
+    -option ctrl:swap_lalt_lctl \
+    -device $(echo $keyboard | grep -oP "(?<=id=)\d+")
+fi
+

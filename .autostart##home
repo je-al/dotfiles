@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+
+# no beeps
+xset -b
+
+xrdb -merge $HOME/.xresources &
+
+# kb layout
+modkb_dv6t
+modkb_typematrix
+
+#temporary
+i3-msg restart
+
+# notifications
+dunst &
+
+# touchpad
+syndaemon -t -k -i 1 -d &
+synclient TapButton1=1 TapButton3=3
+
+# gamma correct
+xgamma -gamma 0.90 &
+
+# composition
+# xcompmgr -cf -r 0 -D 6
+
+random-wallpaper &
+
+# launcher
+rofi -key-window mod4+w -key-run mod4+e -switchers run,window -location 2 &
+
+udiskie --tray &
+
+exit 0

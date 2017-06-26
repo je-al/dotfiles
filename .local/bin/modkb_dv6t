@@ -1,0 +1,15 @@
+#!/bin/bash
+keyboard=$(xinput | grep "AT Translated Set 2 keyboard")
+if [[ $? -eq 0 ]] ; then
+  setxkbmap \
+    -layout us,us \
+    -variant dvp, \
+    -option \
+    -option caps:swapescape \
+    -option grp:shifts_toggle \
+    -option grp_led:caps \
+    -option ctrl:swap_lalt_lctl \
+    -option compose:ralt \
+    -device $(echo $keyboard | grep -oP "(?<=id=)\d+")
+fi
+
