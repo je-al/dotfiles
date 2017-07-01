@@ -173,6 +173,7 @@ exec --no-startup-id i3-sensible-terminal -t "st-sp" -g 968x633+199+50
 for_window [title="st-sp"] move scratchpad
 
 # theme
+font pango:Icons bold 8
 set $hfg #000000
 set $hbg #7cafc2
 set $bg #282828
