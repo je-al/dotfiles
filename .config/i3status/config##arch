@@ -40,7 +40,7 @@ run_watch VPN {
 }
 
 time {
-    format = " %m/%d    %H:%M"
+    format = " %m/%d  %H:%M"
 }
 
 volume master {
