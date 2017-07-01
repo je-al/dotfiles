@@ -8,4 +8,7 @@ yadm submodule update --recursive --init
 echo "updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:je-al/dotfiles.git"
 
+echo "installing fonts"
+$HOME/.misc/fonts/install.sh
+
 echo "done!"
