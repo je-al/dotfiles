@@ -1,1 +1,2 @@
 install / update tpm plugins on install
+firefox profile handling
