@@ -19,3 +19,5 @@ if [ -z $XDG_CONFIG_DIRS ]; then
 else
   export XDG_CONFIG_DIRS="/etc/xdg:$XDG_CONFIG_DIRS"
 fi
+
+export TERMINAL=$(which stterm)
