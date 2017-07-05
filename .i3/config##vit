@@ -154,6 +154,24 @@ bindsym $mod+v mode "$mode_workspaces"
 #print screen
 bindsym Print exec scrot
 
+set $volume_up exec --no-startup-id pactl set-sink-volume 0 +5%
+set $volume_down exec --no-startup-id pactl set-sink-volume 0 -5%
+set $volume_mute exec --no-startup-id pactl set-sink-mute 0 toggle
+
+set $mode_sink Sink -- screen off {p} - volume: down {o} up {e} mute {u} - screen: toggle {q} external {j} - random bg {r}
+mode "$mode_sink" {
+    bindsym p exec --no-startup-id display-off, mode "default"
+    bindsym o $volume_down
+    bindsym e $volume_up
+    bindsym u $volume_mute
+    bindsym q exec --no-startup-id toggle-display; exec bash ~/.fehbg
+    bindsym j exec --no-startup-id toggle-external
+    bindsym r exec --no-startup-id random-wallpaper
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Shift+K mode "$mode_sink"
+
 # applications
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
