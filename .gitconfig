@@ -1,0 +1,10 @@
+[user]
+   name = Jorge Arrieta
+[core]
+   editor = vim
+[merge]
+    tool = vimdiff
+[push]
+    default = simple
+[include]
+    path = .gitconfig.local
