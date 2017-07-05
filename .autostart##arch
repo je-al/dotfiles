@@ -27,9 +27,6 @@ xgamma -gamma 0.90 &
 
 random-wallpaper &
 
-# launcher
-rofi -key-window mod4+w -key-run mod4+e -switchers run,window -location 2 &
-
 udiskie --tray &
 
 exit 0

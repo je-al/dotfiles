@@ -201,7 +201,9 @@ for_window [class="ClipGrab"] border 1pixel
 # launch
 set $runst st -f 'Anonymice Powerline:size=13:antialias=true:autohint=true'
 bindsym $mod+Return exec --no-startup-id $runst
-bindsym $mod+m exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -i -l 15"
+bindsym $mod+e exec --no-startup-id rofi -show run -location 2
+bindsym $mod+m exec --no-startup-id rofi -show drun -location 2
+bindsym $mod+w exec --no-startup-id rofi -show window -location 2
 bindsym $mod+f exec --no-startup-id clear-mouse
 
 exec --no-startup-id $runst -t "st-sp" -g 968x633+199+50
