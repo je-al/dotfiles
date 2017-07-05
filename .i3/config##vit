@@ -164,7 +164,7 @@ for_window [class="Firefox" instance="Browser"] floating enable
 for_window [class="Chromium"] border 1pixel
 
 # launch
-set $runst stterm -f 'Anonymice Powerline:size=13:antialias=true:autohint=true'
+set $runst $TERMINAL -f 'Anonymice Powerline:size=13:antialias=true:autohint=true'
 bindsym $mod+Return exec --no-startup-id $runst
 bindsym $mod+e exec --no-startup-id rofi -show run -location 2
 bindsym $mod+m exec --no-startup-id rofi -show drun -location 2
