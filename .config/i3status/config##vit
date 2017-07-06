@@ -1,9 +1,9 @@
 general {
     interval = 5
     colors = true
-    color_good = "#dddddd"
+    color_good = "#a1b56c"
     color_degraded = "#ffff88"
-    color_bad = "#ff8888"
+    color_bad = "#ab4642"
 }
 
 order += "wireless wlan0"
