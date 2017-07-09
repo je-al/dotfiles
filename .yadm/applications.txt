@@ -1,10 +1,17 @@
 feh
+hddtemp
+htop
+netcat
 ponymix
 pulseaudio-ctl
 rofi
 scrot
+socat
 stterm
+tlp
+ufw
 xcalib
 xdotool
 xinput
 xrandr
+zathura
