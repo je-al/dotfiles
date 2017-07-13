@@ -4,7 +4,7 @@ rofi.line-margin: 1
 rofi.scrollbar-width: 6
 rofi.padding: 2
 rofi.columns: 2
-rofi.font: Anonymice Powerline 11
+rofi.font: Sans 11
 rofi.color-enabled: true
 
 ! state:           'bg',    'fg',    'bgalt', 'hlbg',  'hlfg'
