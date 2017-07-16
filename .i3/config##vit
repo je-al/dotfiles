@@ -154,12 +154,16 @@ bindsym $mod+v mode "$mode_workspaces"
 #print screen
 bindsym Print exec scrot
 
+set $brightness_up exec --no-startup-id brightness-ctl +3
+set $brightness_down exec --no-startup-id brightness-ctl -3
 set $volume_up exec --no-startup-id pactl set-sink-volume 0 +5%
 set $volume_down exec --no-startup-id pactl set-sink-volume 0 -5%
 set $volume_mute exec --no-startup-id pactl set-sink-mute 0 toggle
 
-set $mode_sink Sink -- screen off {p} - volume: down {o} up {e} mute {u} - screen: toggle {q} external {j} - random bg {r}
+set $mode_sink Sink -- brightness: down {,} up {.} - screen off {p} - volume: down {o} up {e} mute {u} - screen: toggle {q} external {j} - random bg {r}
 mode "$mode_sink" {
+    bindsym comma $brightness_down
+    bindsym period $brightness_up
     bindsym p exec --no-startup-id display-off, mode "default"
     bindsym o $volume_down
     bindsym e $volume_up
