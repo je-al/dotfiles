@@ -154,8 +154,8 @@ bindsym $mod+v mode "$mode_workspaces"
 #print screen
 bindsym Print exec scrot
 
-set $brightness_up exec --no-startup-id brightness-ctl +3
-set $brightness_down exec --no-startup-id brightness-ctl -3
+set $brightness_up exec --no-startup-id backlight +3
+set $brightness_down exec --no-startup-id backlight -3
 set $volume_up exec --no-startup-id pactl set-sink-volume 0 +5%
 set $volume_down exec --no-startup-id pactl set-sink-volume 0 -5%
 set $volume_mute exec --no-startup-id pactl set-sink-mute 0 toggle
